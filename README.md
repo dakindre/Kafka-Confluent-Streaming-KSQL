@@ -30,7 +30,7 @@
 
 
 ## File Explanations
-### confluentStart
+### Confluent Start
   * install dependencies
   * install confluent
   * add to path
@@ -38,11 +38,18 @@
   * create topic
   * start ksql client
 
-### confluenConsumer
+### Confluent Producer
+  * Creates Producer to injest and parse JSON file and add timed delayed messages to stream
+  * Uses Confluent Python Library
+
+### Confluent Consumer
   * USER:                Stream Created from Kafka Topic 
   * USER_INFO:           Stream Created from USER Topic
   * UNIQUE_USERS:        Table Created from USER_INFO
   * COUNTRY_AGG:         Table Created from USER Topic
+
+### Confluent Stop
+  * Ends confluent services
 
 ## Confluent Justifications/Limitations
 ### Justifications
