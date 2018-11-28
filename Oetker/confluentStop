@@ -1,0 +1,2 @@
+#!/bin/bash
+~/confluent5/bin/./confluent stop

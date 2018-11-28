@@ -1,0 +1,36 @@
+#!/bin/bash
+#update
+apt-get update
+
+#install dependencies
+apt install openjdk-8-jre-headless -y
+apt install python3-pip -y
+pip3 install jupyter
+apt install curl -y
+
+#install confluent
+cd ~
+curl -O http://packages.confluent.io/archive/5.0/confluent-5.0.1-2.11.tar.gz
+tar -xvzf confluent-5.0.1-2.11.tar.gz
+mv confluent-5.0.1 confluent5
+pip3 install confluent-kafka
+
+#add to path
+export PATH="/home/oetker/confluent5/bin:$PATH"
+source ~/.bashrc
+
+#start confluent services
+confluent start
+./control-center-start ~/confluent5/etc/confluent-control-center/control-center.properties
+
+
+#create topic
+kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic oetker
+
+#change back to working directory
+cd ~/Documents/Oetker
+
+#start ksql client
+LOG_DIR=./ksql_logs ksql
+
+
