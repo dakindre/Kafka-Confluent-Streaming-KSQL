@@ -4,11 +4,11 @@
 
 1. Run following command in KSQL prompt:
 
-  `RUN SCRIPT 'confluentConsumer.ksql';`
+      `RUN SCRIPT 'confluentConsumer.ksql';`
 
 2. To view results of windowed unique user aggregation in KSQL type the following:
 
-  `SELECT ROWKEY, UNIQUE_USERS FROM UNIQUE_USERS; To stop type:Ctrl-C:`
+      `SELECT ROWKEY, UNIQUE_USERS FROM UNIQUE_USERS; To stop type:Ctrl-C:`
 
 3. View analysis in the Control Console
 
@@ -16,17 +16,17 @@
 
 5. To view results of non windowed country counts type the following:
 
-  `SELECT ROWTIME, COUNTRY, COUNTRYCOUNT FROM COUNTRY_AGG;`
+      `SELECT ROWTIME, COUNTRY, COUNTRYCOUNT FROM COUNTRY_AGG;`
 
 6. Run the script below under the Producer Heading to begin the Kafka Stream
 
 7. Once the stream has ended stop both queries and exit KSQL using the below command:
 
-  `exit`
+      `exit`
 
 8. End Services by running the following script:
 
-  `sudo ~/Documents/Oetker/./confluentStop`
+      `sudo ~/Documents/Oetker/./confluentStop`
 
 
 ## File Explanations
